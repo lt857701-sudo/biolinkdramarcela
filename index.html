@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3C2015" />
+    <meta name="description" content="Marcela Fontes — Estética avançada em Santa Cruz da Serra • Barra da Tijuca. Cuidado, tecnologia e harmonização para realçar sua beleza natural." />
+    <title>Marcela Fontes — Estética Avançada</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+      :root {
+        --espresso: #3C2015;
+        --chocolate: #573020;
+        --marrom-quente: #77432E;
+        --cacau: #9A583A;
+        --terracota: #CB7448;
+        --cobre: #D68253;
+        --caramelo: #EA9E6F;
+        --dourado: #F3B380;
+        --marfim: #FFF1E5;
+        --creme: #F3E0CE;
+        --line: rgba(214,130,83,.28);
+      }
+
+      * { box-sizing: border-box; }
+      html, body, #root {
+        width: 100%;
+        min-width: 320px;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+      body {
+        background: #3C2015;
+        font-family: 'DM Sans', Arial, sans-serif;
+        color: #FFF1E5;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+      }
+      a { color: inherit; text-decoration: none; }
+
+      .bio-page {
+        position: relative;
+        width: min(100%, 430px);
+        height: 100svh;
+        min-height: 560px;
+        margin: 0 auto;
+        overflow: hidden;
+        isolation: isolate;
+        background: #F3E0CE;
+        box-shadow: 0 25px 80px rgba(60,32,21,.18);
+      }
+
+      .hero-photo {
+        position: absolute;
+        inset: 0;
+        z-index: -4;
+        background-image: url('assets/foto-de-fundo.png');
+        background-position: center 27%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transform: scale(1.015);
+      }
+
+      .hero-tint {
+        position: absolute;
+        inset: 0;
+        z-index: -3;
+        background: linear-gradient(180deg, rgba(60,32,21,.20) 0%, rgba(60,32,21,.05) 34%, rgba(60,32,21,.15) 48%, rgba(60,32,21,.75) 100%);
+      }
+
+      .hero-bottom-blur {
+        position: absolute;
+        left: -5%;
+        right: -5%;
+        bottom: -5%;
+        height: 60%;
+        z-index: -2;
+        backdrop-filter: blur(11px);
+        -webkit-backdrop-filter: blur(11px);
+        background: linear-gradient(180deg, rgba(60,32,21,0) 0%, rgba(60,32,21,.2) 23%, rgba(60,32,21,.65) 63%, rgba(60,32,21,.9) 100%);
+        mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.58) 20%, #000 44%, #000 100%);
+        -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.58) 20%, #000 44%, #000 100%);
+      }
+
+      .hero-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: clamp(54px, 11vh, 76px);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 20px;
+        z-index: 2;
+      }
+
+      .monogram {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(26px, 7vw, 32px);
+        letter-spacing: -.17em;
+        line-height: 1;
+        padding-right: 4px;
+        color: #FFF1E5;
+      }
+
+      .hero-header p {
+        flex: 1;
+        margin: 0;
+        font-size: clamp(7px, 1.8vw, 9px);
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        opacity: .84;
+        white-space: nowrap;
+        color: #FFF1E5;
+      }
+
+      .hero-instagram {
+        display: inline-flex;
+        padding: 5px;
+      }
+
+      .hero-instagram svg {
+        width: 17px;
+        height: 17px;
+        fill: none;
+        stroke: #D68253;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .screen-content {
+        position: absolute;
+        left: clamp(17px, 6vw, 25px);
+        right: clamp(17px, 6vw, 25px);
+        bottom: clamp(6px, 1.5vh, 14px);
+        z-index: 2;
+      }
+
+      h1 {
+        color: #FFF1E5;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(35px, 11.2vw, 56px);
+        letter-spacing: -.05em;
+        line-height: .91;
+        margin: 0 0 clamp(8px, 1.5vh, 13px);
+        text-shadow: 0 2px 40px rgba(60,32,21,.9);
+        display: block;
+      }
+
+      .hero-word-big {
+        font-size: clamp(42px, 13vw, 64px);
+        font-weight: 500;
+        letter-spacing: -.08em;
+        color: #FFF1E5;
+        display: inline-block;
+      }
+
+      .hero-word-rest {
+        font-size: clamp(22px, 6.5vw, 30px);
+        font-weight: 400;
+        letter-spacing: -.02em;
+        color: #EA9E6F;
+        display: inline-block;
+      }
+
+      h1 em {
+        color: #D68253;
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .primary-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        width: 100%;
+        height: clamp(36px, 7vh, 48px);
+        padding: 0 17px;
+        border-radius: 999px;
+        background: #CB7448;
+        color: #FFF1E5;
+        font-size: clamp(8px, 2.2vw, 10px);
+        letter-spacing: .14em;
+        box-shadow: 0 7px 20px rgba(60,32,21,.17);
+        transition: background .2s ease, transform .2s ease;
+      }
+
+      .primary-cta:hover {
+        background: #F3B380;
+        transform: translateY(-2px);
+      }
+
+      .primary-cta svg {
+        flex: none;
+        width: 17px;
+        height: 17px;
+        fill: none;
+        stroke: #FFF1E5;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .links-heading {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: clamp(8px, 1.6vh, 13px) 0 4px;
+        color: #FFF1E5;
+        font-size: clamp(6px, 1.7vw, 8px);
+        letter-spacing: .17em;
+        white-space: nowrap;
+      }
+
+      .links-heading i {
+        height: 1px;
+        flex: 1;
+        background: rgba(214,130,83,.35);
+      }
+
+      .link-list {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(3px, .8vh, 6px);
+      }
+
+      .content-link {
+        display: grid;
+        grid-template-columns: 24px 1fr 16px;
+        align-items: center;
+        gap: 8px;
+        min-height: clamp(36px, 6.3vh, 46px);
+        padding: 5px 16px 5px 11px;
+        border: 1px solid rgba(214,130,83,.45);
+        border-radius: 999px;
+        background: #F3E0CE;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        transition: background .2s ease, border-color .2s ease, transform .2s ease;
+      }
+
+      .content-link:hover {
+        background: #F3B380;
+        border-color: rgba(60,32,21,.6);
+        transform: translateX(2px);
+      }
+
+      .link-index {
+        color: #D68253;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 12px;
+      }
+
+      .link-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+      }
+
+      .link-text strong {
+        overflow: hidden;
+        color: #3C2015;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(12px, 3.5vw, 16px);
+        font-weight: 400;
+        line-height: 1.05;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .link-text small {
+        overflow: hidden;
+        color: #77432E;
+        font-size: clamp(7px, 1.9vw, 9px);
+        line-height: 1.15;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .content-link svg {
+        width: 16px;
+        height: 16px;
+        fill: none;
+        stroke: #D68253;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex: none;
+      }
+
+      @media (max-height: 680px) {
+        .screen-content { bottom: 10px; }
+        h1 { font-size: clamp(32px, 10.6vw, 48px); margin-bottom: 6px; }
+        .primary-cta { height: 36px; }
+        .links-heading { margin-top: 7px; margin-bottom: 3px; }
+        .content-link { min-height: 34px; padding-top: 3px; padding-bottom: 3px; }
+        .link-text strong { font-size: 12px; }
+        .link-text small { font-size: 7px; }
+      }
+
+      @media (max-width: 350px) {
+        .hero-header { padding-left: 15px; padding-right: 15px; }
+        .screen-content { left: 15px; right: 15px; }
+        .hero-header p { font-size: 6px; }
+        .link-text strong { font-size: 11px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="bio-page">
+        <div class="hero-photo" role="img" aria-label="Marcela Fontes em um evento profissional"></div>
+        <div class="hero-tint"></div>
+        <div class="hero-bottom-blur"></div>
+
+        <header class="hero-header">
+          <a class="monogram" href="#inicio" aria-label="Marcela Fontes">MF</a>
+          <p>ESTÉTICA AVANÇADA</p>
+          <a class="hero-instagram" href="https://www.instagram.com/dra.marcelafontes/" target="_blank" rel="noreferrer" aria-label="Instagram de Marcela Fontes">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4" /><circle cx="12" cy="12" r="4" /><path d="M17.7 6.4h.01" /></svg>
+          </a>
+        </header>
+
+        <section class="screen-content" id="inicio">
+          <h1><span class="hero-word-big">Realce</span><span class="hero-word-rest"> sua beleza.</span><br /><span class="hero-word-rest">Valorize sua</span><span class="hero-word-big"> essência.</span></h1>
+
+          <a class="primary-cta" href="https://wa.me/5521975063169?text=Ol%C3%A1%2C%20Marcela!%20Conheci%20sua%20p%C3%A1gina%20e%20gostaria%20de%20saber%20mais%20sobre%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noreferrer">
+            AGENDAR MINHA AVALIAÇÃO PELO WHATSAPP
+            <svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
+          </a>
+
+          <div class="links-heading"><span>CONTEÚDOS SELECIONADOS</span><i></i></div>
+
+          <div class="link-list" aria-label="Conteúdos de Marcela Fontes">
+            <a class="content-link" href="https://www.instagram.com/reel/Dfj15FbRVi3/" target="_blank" rel="noreferrer">
+              <span class="link-index">01</span>
+              <span class="link-text"><strong>Harmonização Facial</strong><small>Realce seus traços e valorize a beleza natural do seu rosto.</small></span>
+              <svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
+            </a>
+            <a class="content-link" href="https://www.instagram.com/reel/DfpS_zqRxDd/" target="_blank" rel="noreferrer">
+              <span class="link-index">02</span>
+              <span class="link-text"><strong>Rinoplastia</strong><small>Transforme o seu perfil sem precisar de cirurgia.</small></span>
+              <svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
+            </a>
+            <a class="content-link" href="https://www.instagram.com/reel/DU_p3ikEniH/" target="_blank" rel="noreferrer">
+              <span class="link-index">03</span>
+              <span class="link-text"><strong>Tratamentos a Laser</strong><small>Tecnologia e cuidado a favor da sua beleza.</small></span>
+              <svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
